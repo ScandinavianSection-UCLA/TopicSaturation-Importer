@@ -3,6 +3,9 @@
 fs = require "fs"
 mongoose = require "mongoose"
 
+[_, _, textFile, corpus, subCorpus] = process.argv
+mongoose.connect "/tmp/mongodb-27017.sock/#{corpus}"
+
 Topic = mongoose.model "Topic", new mongoose.Schema
 	id: type: Number, index: true
 	name: String
@@ -11,9 +14,6 @@ Record = mongoose.model subCorpus, new mongoose.Schema
 	article_id: String
 	topic: type: mongoose.Schema.ObjectId, ref: "Topic"
 	proportion: Number
-
-[_, _, textFile, corpus, subCorpus] = process.argv
-mongoose.connect "/tmp/mongodb-27017.sock/#{corpus}"
 
 fs.readFileSync textFile
 	.split /[\r\n]+/
