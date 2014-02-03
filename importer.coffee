@@ -17,6 +17,7 @@ Record = mongoose.model subCorpus, new mongoose.Schema
 
 fs.readFileSync textFile
 	.split /[\r\n]+/
+	.map (x) -> x.split /\s+/g
 	.forEach ([_, article_id, tuples...]) ->
 		article_id = article_id.split(".")[0]
 		[0..(tuples.length / 2)]
