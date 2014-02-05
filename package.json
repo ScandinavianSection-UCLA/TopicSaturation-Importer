@@ -1,6 +1,6 @@
 {
   "name": "TopicSaturation-Importer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "TopicSaturation-Importer ========================",
   "main": "importer.coffee",
   "dependencies": {
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/ScandinavianSection-UCLA/TopicSaturation-Importer.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ScandinavianSection-UCLA/TopicSaturation-Importer/issues"
   },
