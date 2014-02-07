@@ -1,6 +1,6 @@
 {
   "name": "TopicSaturation-Importer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TopicSaturation-Importer ========================",
   "main": "importer.coffee",
   "dependencies": {
