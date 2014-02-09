@@ -64,6 +64,9 @@ fin.on "data", (chunk) ->
 fin.on "end", ->
 	async.map fstr, processLine, (err, counts) ->
 		count = counts.reduce (s, x) -> s + x
-		return console.error "- error processing #{count} tuples".redBG, err if err?
+		if err?
+			console.error "- error processing #{count} tuples".redBG, err
+			return process.exit 1
 		console.log "- processed #{count} tuples".green
 		console.log "- done".green
+		process.exit()
