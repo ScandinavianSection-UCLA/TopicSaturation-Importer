@@ -29,7 +29,7 @@ processLine = (line, callback) ->
 	line = line
 		.split /\s+/
 		.filter (x) -> x isnt ""
-	return callback null, 0 if line is []
+	return callback null, 0 if line.length is 0
 	[_, article_id, tuples...] = line
 	try
 		article_id = article_id.split("/")[-1..][0]
