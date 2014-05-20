@@ -31,7 +31,11 @@ processLine = (line, callback) ->
 		.filter (x) -> x isnt ""
 	return callback null, 0 if line is []
 	[_, article_id, tuples...] = line
-	article_id = article_id.split("/")[-1..][0]
+	try
+		article_id = article_id.split("/")[-1..][0]
+	catch ex
+		console.error "Error: #{ex} in [#{line}]"
+		process.exit 1
 	# console.log "- decomposing article:".yellow, article_id
 	async.map [0...(tuples.length / 2)].map((i) -> i * 2),
 		(i, callback) ->
